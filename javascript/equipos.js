@@ -63,10 +63,10 @@ class Equipo {
     // SE ITERA EL ARRAY Y SE CREA CONTENIDO CON BOOTSTRAP PARA EL NODO QUE SE CREO
 
     for (let articulos of equipos) {
-	  let insertar = document.createElement("div");
-	  insertar.classList.add("col-4"); //SE AGREGA CLASE DE BOOTSTRAP AL INNERHTML
-	  
-    insertar.innerHTML = `<div class="card" style="width: 18rem;">
+      let insertar = document.createElement("div");
+      insertar.classList.add("col"); //SE AGREGA CLASE "col" DE BOOTSTRAP AL INNERHTML
+
+      insertar.innerHTML = `<div class="card" style="width: 18rem;">
 	  
     <img src=${articulos.imagen} class="card-img-top" alt="...">
 	  <div class="card-body">
@@ -78,9 +78,10 @@ class Equipo {
     <span class="precio">${articulos.precio}</span><br><br>
 	  <button type="button" class="btn btn-success botonComprar">Comprar</button>
 	  </div>
-	  </div>`;
-	  row.appendChild(insertar); 
-}
+	  </div>
+    <br>`;
+      row.appendChild(insertar);
+    }
   //SE INSERTA
 
   let contenedor = document.getElementById("contenedor");
