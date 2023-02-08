@@ -14,6 +14,9 @@ realizar salidas de un procesamiento.
 // PENDIENTE PARA EL PROYECTO FINAL TABAJAR EL CARRITO CON LOCAL STORAGE Y MOSTRARLO EN ARCHIVO
 // DISTINTO DEL HTML
 
+// ARRAY DE OBJETOS ARTICULO
+let productosCarrito = [];
+
 function agregarCarrito(e){
  console.log ("Se hizo click", e.target);
 
@@ -31,41 +34,55 @@ let articulo = {
     precio : precio,
     imagen : imagen,
     cantidad : 1
+  
 };
+// SE PUSHEA AL ARRAY CUANDO SE HACE CLICK
 
-// trabajo pendiente para proyecto final GUARDAR EN LOCAL STORAGE
+  productosCarrito.push(articulo);
+ // console.log(productosCarrito)
 
-mostrarCarrito(articulo);
+  // SE GUARDA EN LOCALSTORAGE
 
-}
+let articuloJson = JSON.stringify(productosCarrito); 
+localStorage.setItem("carrito" , articuloJson); 
 
-function mostrarCarrito(articulo){
+ // SE RECUPERA CARRITO DE LOCALSTORAGE Y SE PARSEA EL ARCHIVO JSON A ARRAY
+
+let recuperarCarrito = localStorage.getItem("carrito");
+recuperarCarrito = JSON.parse(recuperarCarrito);
+
+// SE RECORRE EL ARRAY Y SE RENDERIZAN LOS OBJETOS RECUPERADOS
+
+for (carrito of recuperarCarrito){  
     let fila = document.createElement("tr");
-    fila.innerHTML = ` <td><img src="${articulo.imagen }" class="img-thumbnail" width ="80" height ="80"></td> 
-                       <td>${articulo.nombre }</td>
-                        <td>${articulo.cantidad }</td>
-                        <td>${articulo.precio }</td>
+    fila.innerHTML = ` <td><img src="${carrito.imagen }" class="img-thumbnail" width ="80" height ="80"></td> 
+                       <td>${carrito.nombre }</td>
+                        <td>${carrito.cantidad }</td>
+                        <td>${carrito.precio }</td>
                         <td><button type="button" class="btn btn-outline-success eliminar">Elimnar</button></td>
                         
     `; 
 
+    // SE CAPTURA EL NODO Y SE INSERTA EL CONTENIDO
+
     let tabla = document.getElementById("tbody");
     tabla.append(fila);
-    
-    let botonEliminar = document.querySelectorAll(".eliminar");
-    
-    for (let boton of botonEliminar){
-            boton.addEventListener("click" , eliminarArticulo );
 
-    }
-}   
-  
+    // SE CAPTURA BOTON ELIMINAR SE GENERA EL EVENTO
+    let botonEliminar = document.querySelectorAll(".eliminar");
+        for (let boton of botonEliminar){
+            boton.addEventListener("click" , eliminarArticulo );
+   
+  } 
+}
+}  
+ 
+ // BOTON ELIMINAR PENDIENTE HACER REMOVE() DE LOCAL STORAGE
+
  function eliminarArticulo(e){
     e.target.parentNode.parentNode.remove();
- } 
+ }  
   
-
-
   //SE TRAE EL BOTON SE GENERA ENTO CLICK AGREGA AL CARRITO 
   let botonComprar = document.querySelectorAll (".botonComprar");
   //SE RECORRE EL ARRAY DE BOTONES
