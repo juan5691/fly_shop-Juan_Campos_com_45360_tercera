@@ -2,7 +2,7 @@ body{
     background-color: rgb(116, 115, 115);
 }
 
-section{
+#login{
     margin-top: 100px;
     max-width: 500 px;
     display: flex;
@@ -15,4 +15,16 @@ h4{
 
 #botones{
     margin-top: 15px;
+}
+
+#contacto{
+    
+    margin-top: 100px;
+    max-width: 550px;
+    padding: 10px;
+    border-radius: 10px;
+     
+}
+.form-label{
+    color: white;
 }

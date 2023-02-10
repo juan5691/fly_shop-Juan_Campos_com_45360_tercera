@@ -34,7 +34,7 @@ function set_data(){
 
     let recuperarUsuarios = localStorage.getItem("arreglo_usuarios");  //SE RECUPERA DE LOCAL STORAGE
     console.log( recuperarUsuarios );
-
+  
 }
 
 // FUNCION MANEJADORA DE EVENTO PARA INGRESO DE USUARIOS"EVENT HANDLER"
