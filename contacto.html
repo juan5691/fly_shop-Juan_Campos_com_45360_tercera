@@ -4,15 +4,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fly Shop</title>    
- 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <title>Fly Shop</title>
+
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-   
-    <link rel="stylesheet" href="estilos.css">
- 
-    <!-- ALUMNO JUAN CAMPOS CURSO JAVASCRIPT COMISION 45360 --> 
-  </head>
+
+  <!--LINK A HOJA DE ESTILOS -->
+  <link rel="stylesheet" href="estilos.css">
+
+    <!-- LINK A LIBRERIA EMAILJS PARA ENVIO DE CORREOS  SE INICIALIZA TAMBIEN EN EL HEAD-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('90WKNctYjtJpUvQ_b')
+  </script>
+  
+  <!-- LINK A LIBRERIA SWEETALERT -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+
+  <!-- ALUMNO JUAN CAMPOS CURSO JAVASCRIPT COMISION 45360 -->
+
+</head>
 
 <body>
   <!--    aca empieza la barra de navegacion -->
@@ -34,56 +46,61 @@
             <li class="nav-item">
               <a class="nav-link active" href="#">Salidas</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Contacto</a>
-                </li>
- 
   </nav>
 
+  <!-- FIN DE LA BARRA DE NAVEGACION -->
+
+  <!-- INICIO DE FORMULARIO -->
+
     <div class="container bg-dark" id="contacto">
-        <form action="">
-        <div class="row">
-            <div class="col">
-                <label class="form-label">Nombre</label>
-              <input type="text" class="form-control" placeholder="Nombre">
-            </div>
-            <div class="col">
-                <label class="form-label">Apellido</label>
-              <input type="text" class="form-control" placeholder="Apellido">
-            </div>
-          </div>
-        <div class="mb-3">
-            <label class="form-label">Su direccion de Email</label>
-            <input type="email" class="form-control" placeholder="nombre@ejemplo.com">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Ingrese su mensaje responderemos a la brevedad</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="button" class="btn btn-outline-success" id="btnEnviar">Enviar</button>
-          </div>
-          </form>
+
+   <div class="row">   
+    <div class="col">
+
+      <form id="form">
+
+        
+        <div class="form-label mb-3">
+          <label for="from_name">Nombre y apellido</label>
+          <input type="text" class="form-control" name="from_name" placeholder="Nombre y Apellido" id="from_name">
         </div>
 
+        <div class="form-label mb-3">
+          <label for="email_id">Email</label>
+         
+          <input type="text" class="form-control" name="email_id" placeholder="nombre@ejemplo.com" id="email_id">
+        </div>
 
+        <div class="mb-3">
+          <label class="form-label" for="message">Su mensaje</label>
+          <!-- <input type="text" name="message" id="message"> -->
+          <textarea class="form-control" name="message" rows="4" id="message" cols="30" rows="10"></textarea>
+        </div>
+      <div class="text-center">
+          
+        <input type="submit" class="btn btn-outline-success" id="button" value="Enviar" >
+      </div>
+      </form>
 
-  <!-- aca termina la barra de navegacion -->
+    </div>
+  </div>
+ 
+  </div>
+
+  <!-- FIN DEL FORMULARIO -->
+
   
-  
-  <!-- aca termina segundo bloque de tarjetas -->
-
-  <!-- comienzo de pie de pagina -->
-
-  <!-- fin de pie de pagina -->
+  <!-- SE INICIALIZA SWEETALERT ANTES DEL LINK A ARCHIVO JAVASCRIPT -->
+  <script src="sweetalert2.all.min.js"></script>
 
   <script src="javascript/contacto.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
-
+    
   <!-- ALUMNO JUAN CAMPOS CURSO JAVASCRIPT COMISION 45360 -->
+
   
   
 
