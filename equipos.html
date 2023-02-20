@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Equipos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-   
+    <link rel="stylesheet" href="estilos.css">
 </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">Fly shop online</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,21 +28,30 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="contacto.html">Contacto</a>
                     </li>
-             </ul>          
+             </ul> 
+             
+             <button type="button" class="btn btn-dark" id="verCarrito"></button>
+                                 
              
           </div>
         </div>
       </nav>
       <br>
+      <br>
+      <br>
+
+      <!-- ACA SE INSERTAN LAS CARDS DESDE JS -->
       <div class="container container-fluid" id="contenedor">
-       
-          
-
+                
       </div>
+      <!-- HASTA ACA SE INSERTAN LAS CARDS DESDE JS -->
 
+      
+      
       <!-- Carrito -->
       <div class="container" id="carrito">
-        <h2>Carrito</h2>
+       
+
         <table class="table table-dark">
           <thead>
             <tr>
@@ -50,7 +59,10 @@
               <td>Producto</td>
               <td>Cantidad</td>
               <td>Precio</td>
-              <td></td>             
+              
+              <td id="close"> 
+                <button type="button" class="btn-close btn-close-white " aria-label="Close" id="ocultarCarrito"></button>
+              </td>             
             </tr>
           </thead>
           <tbody id="tbody">
@@ -61,13 +73,15 @@
             <td></td>
            <td>Total Carrito</td>
            <td id="total"></td>
-           <td><button type="button" class="btn btn-success eliminar">Comprar</button></td>  
+           <td><button type="button" class="btn btn-success eliminar">Check Out</button></td>  
                    
           </tfoot>
         </table>
+      
 
       </div>
-    </div>
+
+    
          
 
 

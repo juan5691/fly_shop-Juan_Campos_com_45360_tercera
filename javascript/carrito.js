@@ -22,6 +22,7 @@ let articulo = {
     cantidad : 1
   
 };
+
 // SE PUSHEA AL ARRAY CUANDO SE HACE CLICK
 
   productosCarrito.push(articulo);
@@ -39,6 +40,20 @@ recuperarCarrito = JSON.parse(recuperarCarrito);
 
 //console.log(recuperarCarrito);
 
+//IMAGEN ICONO CARRITO Y CONTADOR
+let cantidad=recuperarCarrito.length;
+console.log(cantidad);
+let verCarrito = document.getElementById("verCarrito");
+verCarrito.innerText = cantidad+"🛒" ;
+verCarrito.style.color= "rgb(39, 128, 28)";
+
+if (verCarrito!= 0){
+  verCarrito.style.display = "block";
+} else{
+  verCarrito.style.display = "none";
+}
+
+
 
 //FUNCION PARA SUMAR TOTAL DEL CARRITO
 
@@ -52,6 +67,10 @@ recuperarCarrito = JSON.parse(recuperarCarrito);
   sumaTotal.innerText = "$"+totalCarrito;
 
   //console.log(totalCarrito);
+
+
+
+
 
 
 //SE CREA UNA FILA VACIA PARA QUE CUANDO SE RECORRA EL ARRAY NO DUPLIQUE EL RENDER
@@ -87,7 +106,7 @@ for (let carrito of recuperarCarrito){
 }
 
  
- // BOTON ELIMINAR PENDIENTE HACER REMOVE() DE LOCAL STORAGE
+ // BOTON ELIMINAR 
 
  function eliminarArticulo(e){
   let equipo = e.target.parentNode.parentNode;
@@ -99,7 +118,7 @@ for (let carrito of recuperarCarrito){
  // SE RECUPERA CARRITO DE LOCALSTORAGE SE PARSEA Y SE HACE UN FIND() CON EL NOMBRE DEL EQUIPO IDENTIFICADO
 let recuperarCarrito = localStorage.getItem("carrito");
 recuperarCarrito = JSON.parse(recuperarCarrito);
-console.log(recuperarCarrito);
+//console.log(recuperarCarrito);
 
 function buscarEquipo(equipo){
 return equipo.nombre == nombreEquipo ;
@@ -140,6 +159,19 @@ function total (acu , producto){
   let sumaTotal = document.getElementById("total");
   sumaTotal.innerText = "$"+totalCarrito;
 
+//IMAGEN ICONO CARRITO Y CONTADOR CUANDO SE ELIMINA DEL CARRITO SE ACTUALIZA CONTADOR
+let cantidad=recuperarCarrito.length;
+console.log(cantidad);
+let verCarrito = document.getElementById("verCarrito");
+verCarrito.innerText = cantidad+"🛒" ;
+verCarrito.style.color= "rgb(39, 128, 28)";
+
+if (verCarrito !=0){
+  verCarrito.style.display = "block";
+} else{
+  verCarrito.style.display = "none";
+}
+
 //SE ELIMINA DEL HTML
 e.target.parentNode.parentNode.remove();
  
@@ -152,6 +184,32 @@ e.target.parentNode.parentNode.remove();
   //SE RECORRE EL ARRAY DE BOTONES
   for (let boton of botonComprar){
     boton.addEventListener ("click" , agregarCarrito);
+
+  //MOSTRAR CARRITO
+
+  boton.addEventListener ("click" , mostrar);
+  function mostrar (){
+    let productosCarrito = document.getElementById("carrito");
+    productosCarrito.style.display="block";  
+  }
+ 
     
   }
 
+  //FUNCION PARA MOSTRAR Y OCULTAR CARRITO👇 TAMBIEN SE MUESTRA AL CLICKEAR BOTON COMPRA
+
+//OCULTAR CARRITO
+let botonOcultar = document.getElementById ("ocultarCarrito");
+botonOcultar.addEventListener("click" , ocultar);
+function ocultar(){
+// console.log("boton escuchado")
+ let productosCarrito = document.getElementById("carrito");
+ productosCarrito.style.display="none";
+}
+
+let verCarrito = document.getElementById("verCarrito");
+verCarrito.addEventListener("click" , mostrar);
+function mostrar (){
+  let productosCarrito = document.getElementById("carrito");
+  productosCarrito.style.display="block";  
+}
