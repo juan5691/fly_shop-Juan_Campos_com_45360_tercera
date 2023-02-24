@@ -8,7 +8,7 @@ function agregarCarrito(e){
 let hijo = e.target;
 let padre = hijo.parentNode;
 let abuelo = padre.parentNode;
-console.log(padre);
+//console.log(padre);
 
 let nombre = padre.querySelector("h5").textContent;
 let precio = Number(padre.querySelector("span").textContent) ;
@@ -23,10 +23,38 @@ let articulo = {
   
 };
 
-// SE PUSHEA AL ARRAY CUANDO SE HACE CLICK
 
+//HICE ESTA FUNCION Y EL CONDICIONAL PARA QUE NO SE REPTAN LOS ARTICULOS PERO 🙁
+//A PESAR DE QUE FUNCIONA NO SE ACTUALIZA CORECTAMENTE EL RENDER
+// VOY A TENER QUE SEGUIR TRABAJANDO CON ESTA PARTE DEL CODIGO
+
+//SE BUSCA PRODUCTO EN EL ARRAY PARA VER SI ESTÁ DUPLICADO 
+/* function ubicarRepetido(repetido){
+  return repetido.nombre == articulo.nombre;
+}
+let resultadoRepetido = productosCarrito.find(ubicarRepetido);
+let ubicado = productosCarrito.indexOf(resultadoRepetido)
+
+if(resultadoRepetido){
+   
+  let cantidad = (productosCarrito[ubicado].cantidad);
+   productosCarrito[ubicado].cantidad = cantidad + 1
+   console.log(productosCarrito[ubicado].cantidad);
+
+let precio =  (productosCarrito[ubicado].precio);
+productosCarrito[ubicado].precio = productosCarrito[ubicado].cantidad * precio;
+
+console.log(productosCarrito[ubicado].precio);
+console.log(productosCarrito);
+  
+}else{
   productosCarrito.push(articulo);
- // console.log(productosCarrito)
+} */
+// Y FINALMENTE LO DEJE ASI👇
+
+
+//SE PUSHEA AL ARRAY
+productosCarrito.push(articulo);
 
   // SE GUARDA EN LOCALSTORAGE
 
@@ -42,7 +70,7 @@ recuperarCarrito = JSON.parse(recuperarCarrito);
 
 //IMAGEN ICONO CARRITO Y CONTADOR
 let cantidad=recuperarCarrito.length;
-console.log(cantidad);
+//console.log(cantidad);
 let verCarrito = document.getElementById("verCarrito");
 verCarrito.innerText = cantidad+"🛒" ;
 verCarrito.style.color= "rgb(39, 128, 28)";
@@ -113,7 +141,7 @@ for (let carrito of recuperarCarrito){
  
  //SE IDENTIFICA EL NOMBRE DEL EQUIPO QUE SE ELIMINO DEL CARRITO
  nombreEquipo = equipo.querySelector("span").textContent;
- console.log(nombreEquipo);
+ //console.log(nombreEquipo);
 
  // SE RECUPERA CARRITO DE LOCALSTORAGE SE PARSEA Y SE HACE UN FIND() CON EL NOMBRE DEL EQUIPO IDENTIFICADO
 let recuperarCarrito = localStorage.getItem("carrito");
@@ -213,3 +241,17 @@ function mostrar (){
   let productosCarrito = document.getElementById("carrito");
   productosCarrito.style.display="block";  
 }
+
+//FUNCION ASINCRONICA
+function botonCheckout (){
+  let botonCheckout = document.getElementById("checkout");
+  if(botonCheckout.className == "btn btn-success eliminar"){
+     botonCheckout.className= "btn btn-outline-success";
+  
+  }else{
+    botonCheckout.className="btn btn-success eliminar";
+  }
+}
+
+let intervalo = setInterval (botonCheckout, 2500); 
+

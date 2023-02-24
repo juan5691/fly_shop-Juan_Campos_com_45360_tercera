@@ -11,7 +11,11 @@ body{
     margin-top: 100px;
     max-width: 500px;
     display: flex;
-    justify-content: center;  
+    justify-content: center;
+    align-content: center; 
+    margin-left: 250px;
+    margin-right: auto;
+  
 }
 
 h4{
@@ -48,10 +52,10 @@ label{
 /* FORMULARIO DE CONTACTO 👆 */
 
 
-/* CARRITO DE COMPRAS 👇 */
+/* MODAL CARRITO DE COMPRAS 👇 */
 #carrito{
     width: 60%;
-    position: fixed;
+    position: absolute;
     z-index: 9;
     top:100px;
     margin-left: 300px;
@@ -65,3 +69,22 @@ label{
 /* CARRITO DE COMPRAS 👆 */
 
 
+/* APP CLIMA */
+#clima{
+    position: absolute;
+    z-index: 9;
+    top:100px;
+    margin-right: auto;
+    margin-left: 80%;
+    color: white;
+    background-color: rgba(8, 8, 8, 40%);
+}
+
+
+/* PIE DE PAGINA */
+a{
+    color: rgb(107, 107, 107);
+    text-decoration: none;
+   
+   
+}
